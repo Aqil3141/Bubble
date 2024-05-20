@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const words = ["apple", "banana", "crayon"];
+const words = ["Python", "C++", "Java", "Javascript", "HTML"];
 
 const Circle = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const handleClick = () => {
-    setCurrentIndex((currentIndex + 1) % words.length);
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex((currentIndex + 1) % words.length);
+      setIsAnimating(false);
+    }, 500); // Match this duration with the CSS animation duration
   };
 
   return (
     <div className="circle" onClick={handleClick}>
-      {words[currentIndex]}
+      <span className={`word ${isAnimating ? 'slide-out' : 'slide-in'}`}>
+        {words[currentIndex]}
+      </span>
     </div>
   );
 };
+
 
 const App = () => {
   return (

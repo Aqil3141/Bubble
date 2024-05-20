@@ -10,3 +10,22 @@
   border: 3px solid black; /* Border property */
 }
 
+.circle{
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.word {
+  position: absolute;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.slide-in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-out {
+  transform: translateX(+100%);
+  opacity: 0;
+}
